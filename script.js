@@ -26,9 +26,26 @@ function calcular() {
 
   let neto = bruto - salud - pension;
 
+  // Formatear todos los valores
+  function f(num) {
+    return num.toLocaleString('es-CO', {minimumFractionDigits: 2});
+  }
 
-document.getElementById('resultado').innerText = 
-  "Total neto aproximado: $" + total.toLocaleString('es-CO', {minimumFractionDigits: 2});
-  
-
+  document.getElementById('resultado').innerHTML = 
+    `<b>Total neto aproximado:</b> $${f(neto)}<br><br>
+    <b>Desglose:</b><br>
+    Salario base: $${f(valorDia * dias)}<br>
+    Horas extra diurnas: $${f(pagoExtraDiurna)}<br>
+    Horas extra nocturnas: $${f(pagoExtraNocturna)}<br>
+    Recargo nocturno ordinario: $${f(pagoNocturno)}<br>
+    Horas dominicales: $${f(pagoDominical)}<br>
+    Cesantías: $${f(cesantias)}<br>
+    Intereses cesantías: $${f(intereses)}<br>
+    Prima: $${f(prima)}<br>
+    Vacaciones: $${f(vacaciones)}<br>
+    <br>
+    Salud (4%): -$${f(salud)}<br>
+    Pensión (4%): -$${f(pension)}<br>
+    <br>
+    <b>Total bruto:</b> $${f(bruto)}`;
 }
