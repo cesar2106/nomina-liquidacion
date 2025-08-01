@@ -26,5 +26,9 @@ function calcular() {
 
   let neto = bruto - salud - pension;
 
-  document.getElementById("resultado").innerHTML = "Total neto aproximado: $" + neto.toFixed(2);
+
+document.getElementById('resultado').innerText = 
+  "Total neto aproximado: $" + total.toLocaleString('es-CO', {minimumFractionDigits: 2});
+  
+
 }
